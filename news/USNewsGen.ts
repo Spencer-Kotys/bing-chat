@@ -25,7 +25,7 @@ async function main() {
   console.log('\n' + res.text + '\n');
   sumText += res.text;
 
-  var stories = res.text.split('-');
+  var stories = res.text.split('- ');
   stories.shift();
   console.log(stories);
 
@@ -38,7 +38,7 @@ async function main() {
     console.log('\n' + res.text + '\n')
     sumText += res.text;
   }
-  console.log(res.text);
+  console.log(sumText);
 }
 
 main().catch((err) => {
