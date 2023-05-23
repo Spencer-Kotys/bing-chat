@@ -13,6 +13,7 @@ dotenv.config();
  * ```
  */
 async function main() {
+  var sumText;
   const api = new BingChat({ cookie: '1gdAhVNcuprCC0teLdxNXc2SDzwhrCfgmfmXHp6vGU6LzJ9hXufW9KH0qHmdnSKj6hkjc_R2tjY7FlkxP7Cld1KAnFpZEEwdS1wWSh-DqEneYSHpgYs-7FgtaQKw6vd45htg0AJnJgFMoDwg-2HuvNIpwtSqjZIK4Qa_8uDvGVawWSloecY6oksaJ5dRc187IJp-OaGfa36hiVZHgBoeVY6VD6NCB9qs4UJ3HBqy4HAg' });
 
   const prompt = 'US news headlines from May 22, 2023';
@@ -22,6 +23,7 @@ async function main() {
   })
 
   console.log('\n' + res.text + '\n');
+  sumText += res.text;
 
   var stories = res.text.split('-');
   stories.shift();
@@ -34,7 +36,9 @@ async function main() {
       text: prompt2
     })
     console.log('\n' + res.text + '\n')
+    sumText += res.text;
   }
+  console.log(res.text);
 }
 
 main().catch((err) => {
