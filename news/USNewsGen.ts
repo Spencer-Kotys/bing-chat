@@ -36,12 +36,22 @@ async function main() {
       text: prompt2
     })
     console.log('\n' + res.text + '\n')
+
     let phrase = 'I\'m sorry but I couldn\'t find'
     if (!(res.text.includes(phrase))) {
       sumText += res.text;
     }
+
   }
   console.log(sumText);
+
+  const prompt3 = `Please present the following news in a professional way: ${sumText}`;
+
+  res = await oraPromise(api.sendMessage(prompt3, res), {
+    text: prompt3
+  })
+
+  console.log('\n' + res.text + '\n');
 }
 
 main().catch((err) => {
