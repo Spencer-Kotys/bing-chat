@@ -36,7 +36,10 @@ async function main() {
       text: prompt2
     })
     console.log('\n' + res.text + '\n')
-    sumText += res.text;
+    let phrase = 'I\'m sorry but I couldn\'t find'
+    if (!(str.includes(phrase))) {
+      sumText += res.text;
+    }
   }
   console.log(sumText);
 }
